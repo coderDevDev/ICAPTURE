@@ -1,0 +1,66 @@
+module.exports = {
+  expo: {
+    name: 'OMR Scanner',
+    slug: 'omr-scanner',
+    version: '1.0.0',
+    orientation: 'default',
+    userInterfaceStyle: 'light',
+    assetBundlePatterns: ['**/*'],
+    ios: {
+      supportsTablet: true,
+      infoPlist: {
+        NSCameraUsageDescription:
+          'This app needs access to camera to scan OMR sheets',
+        NSPhotoLibraryUsageDescription:
+          'This app needs access to photo library to save captured images'
+      }
+    },
+    android: {
+      permissions: [
+        'CAMERA',
+        'WRITE_EXTERNAL_STORAGE',
+        'READ_EXTERNAL_STORAGE',
+        'android.permission.CAMERA',
+        'android.permission.RECORD_AUDIO',
+        'android.permission.READ_EXTERNAL_STORAGE',
+        'android.permission.WRITE_EXTERNAL_STORAGE',
+        'android.permission.READ_MEDIA_VISUAL_USER_SELECTED',
+        'android.permission.ACCESS_MEDIA_LOCATION',
+        'android.permission.READ_MEDIA_IMAGES',
+        'android.permission.READ_MEDIA_VIDEO',
+        'android.permission.READ_MEDIA_AUDIO'
+      ],
+      package: 'com.dexter_20.omrscanner'
+    },
+    web: {
+      favicon: './assets/favicon.png'
+    },
+    plugins: [
+      [
+        'expo-camera',
+        {
+          cameraPermission:
+            'Allow $(PRODUCT_NAME) to access your camera to scan OMR sheets'
+        }
+      ],
+      [
+        'expo-media-library',
+        {
+          photosPermission:
+            'Allow $(PRODUCT_NAME) to access your photos to save captured images',
+          savePhotosPermission:
+            'Allow $(PRODUCT_NAME) to save photos to your device',
+          isAccessMediaLocationEnabled: true
+        }
+      ],
+      // Custom plugin to fix JVM target compatibility
+      ['./plugins/withJvmTarget.js', {}],
+      ['expo-font']
+    ],
+    extra: {
+      eas: {
+        projectId: '42cfc237-2834-423b-977e-47fa110a76bf'
+      }
+    }
+  }
+};

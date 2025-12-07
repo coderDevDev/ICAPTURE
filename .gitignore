@@ -1,0 +1,46 @@
+# Node modules
+node_modules/
+
+# Expo
+.expo/
+.expo-shared/
+
+# Metro bundler
+.expo/web-build/
+web-build/
+
+# Builds
+dist/
+build/
+android/
+ios/
+
+# Yarn / npm logs
+yarn-error.log
+npm-debug.log
+pnpm-debug.log
+
+# macOS files
+.DS_Store
+
+# dotenv
+.env
+.env.local
+.env.*.local
+
+# Typescript
+*.tsbuildinfo
+
+# Logs
+*.log
+
+# VSCode
+.vscode/
+
+# Expo EAS build artifacts
+*.keystore
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
